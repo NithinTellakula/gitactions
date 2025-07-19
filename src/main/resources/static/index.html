@@ -1,10 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hello GitHub Actions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 320px;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .login-container input:focus {
+            border-color: #6e8efb;
+            outline: none;
+        }
+
+        .login-container button {
+            width: 95%;
+            padding: 12px;
+            background-color: #6e8efb;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #5b7dee;
+        }
+
+        .login-container p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .login-container a {
+            color: #6e8efb;
+            text-decoration: none;
+        }
+
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h1>Hello</h1>
-<p> Today, I explored GitHub Actions and understood how it helps automate CI/CD pipelines.</p>
+<div class="login-container">
+    <h2>Login</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#">Register</a></p>
+</div>
+
+<script>
+    function validateForm() {
+        let username = document.getElementById('username').value;
+        let password = document.getElementById('password').value;
+
+        if(username.length < 3) {
+            alert("Username must be at least 3 characters!");
+            return false;
+        }
+        if(password.length < 6) {
+            alert("Password must be at least 6 characters!");
+            return false;
+        }
+        alert("Login Successful!");
+        return true;
+    }
+</script>
 </body>
 </html>
+
