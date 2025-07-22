@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @GetMapping("/status")
+    @GetMapping("/")
         public String status() {
-            return "Application is running!";
+            return "index.html";
         }
     }
 
